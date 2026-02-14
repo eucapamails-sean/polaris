@@ -10,9 +10,9 @@
 
 **Last Updated:** 2026-02-14
 
-**Last Completed Step:** Step 1 — Database Schema
+**Last Completed Step:** Step 3 — Stripe Billing + API Helpers
 
-**Next Action:** Begin Step 2 — Authentication (Clerk)
+**Next Action:** Begin Step 4 — UI Shell
 
 ---
 
@@ -58,14 +58,14 @@
 
 | Sub-step | Status | Notes |
 |----------|--------|-------|
-| 2.1 Create middleware (`middleware.ts`) | ⬜ Not started | |
-| 2.2 Create auth pages (sign-in, sign-up) | ⬜ Not started | |
-| 2.3 Create root layout with ClerkProvider | ⬜ Not started | |
-| 2.4 Create Clerk webhook handler | ⬜ Not started | |
-| 2.5 Create permission utilities | ⬜ Not started | |
-| 2.6 Create user context helper | ⬜ Not started | |
+| 2.1 Create middleware (`middleware.ts`) | ✅ Done | Public routes + auth protection |
+| 2.2 Create auth pages (sign-in, sign-up) | ✅ Done | Clerk components |
+| 2.3 Create root layout with ClerkProvider | ✅ Done | Inter font, metadata |
+| 2.4 Create Clerk webhook handler | ✅ Done | user.created/updated, org.created/updated, membership.created |
+| 2.5 Create permission utilities | ✅ Done | FEATURE_ACCESS map, TIER_LIMITS, hasAccess() |
+| 2.6 Create user context helper | ✅ Done | getUserContext() reads from Clerk + DB |
 
-**Step 2 Status:** ⬜ Not started
+**Step 2 Status:** ✅ Complete
 
 ---
 
@@ -73,12 +73,21 @@
 
 | Sub-step | Status | Notes |
 |----------|--------|-------|
-| 3.1 Create Stripe client | ⬜ Not started | |
-| 3.2 Create product configuration | ⬜ Not started | |
-| 3.3 Create Stripe webhook handler | ⬜ Not started | |
-| 3.4 Create checkout + portal API routes | ⬜ Not started | |
+| 3.1 Create Stripe client | ✅ Done | lib/billing/stripe.ts |
+| 3.2 Create product configuration | ✅ Done | lib/billing/products.ts — all org + pol tiers |
+| 3.3 Create Stripe webhook handler | ✅ Done | Subscription CRUD, org tier sync |
+| 3.4 Create checkout + portal API routes | ✅ Done | /api/v1/billing/checkout + portal |
 
-**Step 3 Status:** ⬜ Not started
+**Step 3 Status:** ✅ Complete
+
+**Also completed:**
+- API response helpers (lib/api.ts) — apiSuccess, apiError, handleApiError
+- Feature gate (lib/feature-gate.ts) — requireFeature()
+- Validators (lib/validators/index.ts) — paginationSchema, parseSearchParams
+- Inngest client (lib/inngest.ts)
+- Redis client + cache/rateLimit helpers (lib/redis.ts)
+- Pusher client (lib/pusher.ts)
+- Email utility (lib/notifications/email.ts)
 
 ---
 
