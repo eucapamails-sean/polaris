@@ -5,7 +5,7 @@ export const subscriptions = pgTable('subscriptions', {
   ownerId: uuid('owner_id').notNull(),
   ownerType: text('owner_type', { enum: ['organization', 'user'] }).notNull(),
   tier: text('tier').notNull(),
-  stripeSubscriptionId: text('stripe_subscription_id').notNull(),
+  stripeSubscriptionId: text('stripe_subscription_id').notNull().unique(),
   stripeCustomerId: text('stripe_customer_id').notNull(),
   status: text('status', { enum: ['active', 'past_due', 'canceled', 'trialing', 'paused'] }).notNull(),
   currentPeriodStart: timestamp('current_period_start'),
