@@ -6,13 +6,13 @@
 
 ## Current Phase: 0–1 (Foundation + Core Intelligence)
 
-**Overall Status:** NOT STARTED
+**Overall Status:** IN PROGRESS
 
-**Last Updated:** —
+**Last Updated:** 2026-02-14
 
-**Last Completed Step:** —
+**Last Completed Step:** Step 1 — Database Schema
 
-**Next Action:** Begin Step 0 — Project Scaffold
+**Next Action:** Begin Step 2 — Authentication (Clerk)
 
 ---
 
@@ -20,14 +20,14 @@
 
 | Sub-step | Status | Notes |
 |----------|--------|-------|
-| 0.1 Initialize Next.js project | ⬜ Not started | |
-| 0.2 Install dependencies | ⬜ Not started | |
-| 0.3 Create folder structure | ⬜ Not started | |
-| 0.4 Create `.env.example` + `.env.local` | ⬜ Not started | |
-| 0.5 Configure `drizzle.config.ts` | ⬜ Not started | |
-| 0.6 Configure `next.config.ts` | ⬜ Not started | |
+| 0.1 Initialize Next.js project | ✅ Done | Next.js 15 with App Router, TypeScript, Tailwind |
+| 0.2 Install dependencies | ✅ Done | All Phase 0-1 deps + shadcn/ui primitives (manual) |
+| 0.3 Create folder structure | ✅ Done | Full directory tree per spec |
+| 0.4 Create `.env.example` + `.env.local` | ✅ Done | .env.example created, .env.local gitignored |
+| 0.5 Configure `drizzle.config.ts` | ✅ Done | Points to src/db/schema/index.ts |
+| 0.6 Configure `next.config.ts` | ✅ Done | serverActions, image remotePatterns |
 
-**Step 0 Status:** ⬜ Not started
+**Step 0 Status:** ✅ Complete
 
 ---
 
@@ -35,22 +35,22 @@
 
 | Sub-step | Status | Notes |
 |----------|--------|-------|
-| 1.1 Create Drizzle client (`db/index.ts`) | ⬜ Not started | |
-| 1.2 Create schema files (10 files) | ⬜ Not started | |
-| — `users.ts` | ⬜ | |
-| — `organizations.ts` | ⬜ | |
-| — `jurisdictions.ts` | ⬜ | |
-| — `politicians.ts` | ⬜ | |
-| — `legislation.ts` | ⬜ | |
-| — `monitoring.ts` | ⬜ | |
-| — `subscriptions.ts` | ⬜ | |
-| — `audit.ts` | ⬜ | |
-| — `ingestion.ts` | ⬜ | |
-| — `index.ts` (re-exports) | ⬜ | |
-| 1.3 Enable pgvector + create indexes | ⬜ Not started | |
-| 1.3a Generate + apply migration | ⬜ Not started | |
+| 1.1 Create Drizzle client (`db/index.ts`) | ✅ Done | neon + drizzle-orm/neon-http |
+| 1.2 Create schema files (10 files) | ✅ Done | All tables per spec §5.2-5.11 |
+| — `users.ts` | ✅ | users table |
+| — `organizations.ts` | ✅ | organizations + orgMemberships |
+| — `jurisdictions.ts` | ✅ | jurisdictions + legislativeBodies + politicalParties |
+| — `politicians.ts` | ✅ | politicians + politicianActivities |
+| — `legislation.ts` | ✅ | bills + billVersions + billVotes + committees + committeeEvents |
+| — `monitoring.ts` | ✅ | monitoringTopics + savedSearches + alerts |
+| — `subscriptions.ts` | ✅ | subscriptions + usageRecords |
+| — `audit.ts` | ✅ | auditLog |
+| — `ingestion.ts` | ✅ | ingestionJobs + ingestionSourceHealth |
+| — `index.ts` (re-exports) | ✅ | Re-exports all 9 schema modules |
+| 1.3 Enable pgvector + create indexes | ⬜ Not started | Requires Neon DB connection — embedding column commented out, add when DB connected |
+| 1.3a Generate + apply migration | ⬜ Not started | Requires DATABASE_URL in .env.local |
 
-**Step 1 Status:** ⬜ Not started
+**Step 1 Status:** ✅ Schema code complete (migration pending DB connection)
 
 ---
 
